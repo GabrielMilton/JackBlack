@@ -5,6 +5,14 @@ public class Player {
     public Card[] Hand;
     public String name;
 
+    public Player(){
+        Cardtotal = 2;
+        isBust = false;
+        isHit = true;
+        Hand = new Card[2];
+        name = "me";
+
+    }
     public void hit(){
     }
 
