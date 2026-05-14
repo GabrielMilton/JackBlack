@@ -19,5 +19,8 @@ public class Player {
     public void stand(){
     }
 
+    public void Printinfo(){
+        System.out.println(name  +  " Chose to hit: " +  isHit + " the cardtotal is: " + Cardtotal + "bust: " + isBust);
+    }
 }
 
