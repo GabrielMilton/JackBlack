@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MainGame {
     public Card[] Deck;
     public Player me;
@@ -19,7 +21,23 @@ public class MainGame {
         shuffle();
         printdeck();
         me = new Player();
-        Niam =new Dealer();
+        Niam = new Dealer();
+        //todo: give the cards to the dealer and player
+        me.Hand[0] = Deck[0];
+        me.Hand[1] = Deck [1];
+        me.calulateTotal();
+        //todo: give dealer card
+        //todo: make the calucle totoal for the dealer
+        //todo: want to print the dealers info
+
+        //ask the user question
+
+        Scanner S = new Scanner(System.in);
+        System.out.println("What is your name?");
+        String name = S.nextLine();
+        System.out.println(name);
+        me.name = name;
+        me.Printinfo();
     }
 
     public void compare(){
