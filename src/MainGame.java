@@ -1,3 +1,4 @@
+import java.net.Socket;
 import java.util.Scanner;
 
 public class MainGame {
@@ -27,9 +28,10 @@ public class MainGame {
         me.Hand[1] = Deck [1];
         me.calulateTotal();
 
-        Niam.Hand[0] = Deck[0];
-        Niam.Hand[1] = Deck [1];
+        Niam.Hand[0] = Deck[2];
+        Niam.Hand[1] = Deck [3];
         Niam.calulateTotal();
+        Niam.Printinfo();
         //todo: give dealer card
         //todo: make the calucle totoal for the dealer
         //todo: want to print the dealers info
@@ -42,6 +44,12 @@ public class MainGame {
         System.out.println(name);
         me.name = name;
         me.Printinfo();
+        me.hit();
+        if(me.isHit == true){{
+            me.Hand[3] = Deck[4];
+            System.out.println("You now have: " + me.Cardtotal);
+        }
+        }
     }
 
     public void compare(){

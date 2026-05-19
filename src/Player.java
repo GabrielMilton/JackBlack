@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Player {
     public int Cardtotal;
     public boolean isBust;
@@ -8,11 +10,17 @@ public class Player {
     public Player(){
         Cardtotal = 2;
         isBust = false;
-        isHit = true;
+        isHit = false;
         Hand = new Card[2];
         name = "me";
     }
     public void hit(){
+        Scanner S = new Scanner(System.in);
+        System.out.println("Hit OR Stay?");
+        String Hit = S.nextLine();
+        if(Hit.equals("Hit")){
+            isHit = true;
+        }
     }
 
     public void stand(){
