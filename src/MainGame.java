@@ -26,6 +26,10 @@ public class MainGame {
         me.Hand[0] = Deck[0];
         me.Hand[1] = Deck [1];
         me.calulateTotal();
+
+        Niam.Hand[0] = Deck[0];
+        Niam.Hand[1] = Deck [1];
+        Niam.calulateTotal();
         //todo: give dealer card
         //todo: make the calucle totoal for the dealer
         //todo: want to print the dealers info
