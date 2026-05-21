@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//todo: ADD another arrray tht copies the hand arry and adds one more to it
 
 public class Player {
     public int Cardtotal;

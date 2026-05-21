@@ -1,4 +1,3 @@
-import java.net.Socket;
 import java.util.Scanner;
 
 public class MainGame {
@@ -46,9 +45,14 @@ public class MainGame {
         me.Printinfo();
         me.hit();
         if(me.isHit == true){{
-            me.Hand[3] = Deck[4];
-            System.out.println("You now have: " + me.Cardtotal);
+            for(int t = 0; t <me.Hand.length; t = t +1) {
+                int randomcardH = (int) (Math.random() * 52);
+                Card ExtraCards = Deck[randomcardH];
+                me.Hand[t] = ExtraCards;
+                me.Hand[t] = ExtraCards;
+            }
         }
+            System.out.println("You now have: " + me.Cardtotal);
         }
     }
 
