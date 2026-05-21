@@ -28,7 +28,6 @@ public class Player {
     }
 
     public void Printinfo(){
-        System.out.println( " Chose to hit: " +  isHit);
         System.out.println("name: " + name);
         System.out.println("cardtotal " + Cardtotal);
         System.out.println( "bust: " + isBust);

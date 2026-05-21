@@ -2,20 +2,23 @@ import java.util.Scanner;
 
 public class MainGame {
     public Card[] Deck;
+    public Card[] ExtraCards;
     public Player me;
     public Dealer Niam;
+
     public static void main(String[] args) {
         new MainGame();
     }
-    public MainGame(){
+
+    public MainGame() {
         System.out.println("Welcome to Blackjack");
         Deck = new Card[52];
         int Counter = 0;
-        for(int y=0; y<4; y=y+1) {//4 suits per deck
+        for (int y = 0; y < 4; y = y + 1) {//4 suits per deck
             for (int x = 0; x < 13; x++) {//13 cards per suit
                 Deck[Counter] = new Card(y, 10, x);
                 Counter++;
-              //  Deck[x].Printinfo();
+                //  Deck[x].Printinfo();
             }
         }
         shuffle();
@@ -24,11 +27,11 @@ public class MainGame {
         Niam = new Dealer();
         //todo: give the cards to the dealer and player
         me.Hand[0] = Deck[0];
-        me.Hand[1] = Deck [1];
+        me.Hand[1] = Deck[1];
         me.calulateTotal();
 
         Niam.Hand[0] = Deck[2];
-        Niam.Hand[1] = Deck [3];
+        Niam.Hand[1] = Deck[3];
         Niam.calulateTotal();
         Niam.Printinfo();
         //todo: give dealer card
@@ -44,20 +47,30 @@ public class MainGame {
         me.name = name;
         me.Printinfo();
         me.hit();
-        if(me.isHit == true){{
-            for(int t = 0; t <me.Hand.length; t = t +1) {
-                int randomcardH = (int) (Math.random() * 52);
-                Card ExtraCards = Deck[randomcardH];
-                me.Hand[t] = ExtraCards;
-                me.Hand[t] = ExtraCards;
+        compare();
+        if (me.isHit == true) {
+            {
+                ExtraCards = new Card[3];
+                for (int t = 0; t < me.Hand.length; t = t + 1) {
+                    ExtraCards[t] = me.Hand[t];
+                }
+                ExtraCards[2] = Deck[4];
+                me.Hand = ExtraCards;
+                System.out.println(Deck[4]);
+                me.calulateTotal();
             }
-        }
             System.out.println("You now have: " + me.Cardtotal);
         }
     }
 
-    public void compare(){
+    public void compare() {
+        System.out.println("The Dealer has a value of: " + Niam.Cardtotal);
+        if (Niam.Cardtotal >= 21) {
+            Niam.isBust = true;
+        }
     }
+
+
 
     public void round(){
     }
