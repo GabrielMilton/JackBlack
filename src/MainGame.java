@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class MainGame {
@@ -46,8 +47,7 @@ public class MainGame {
         System.out.println(name);
         me.name = name;
         me.Printinfo();
-        me.hit();
-        compare();
+        me.HitorStay();
         if (me.isHit == true) {
             {
                 ExtraCards = new Card[3];
@@ -56,17 +56,52 @@ public class MainGame {
                 }
                 ExtraCards[2] = Deck[4];
                 me.Hand = ExtraCards;
-                System.out.println(Deck[4]);
                 me.calulateTotal();
             }
             System.out.println("You now have: " + me.Cardtotal);
         }
+        me.HitorStay();
+        if (me.isHit == true) {
+            {
+                ExtraCards = new Card[4];
+                for (int t = 0; t < me.Hand.length; t = t + 1) {
+                    ExtraCards[t] = me.Hand[t];
+                }
+                ExtraCards[3] = Deck[5];
+                me.Hand = ExtraCards;
+                me.calulateTotal();
+            }
+            System.out.println("You now have: " + me.Cardtotal);
+        }
+        me.HitorStay();
+        if (me.isHit == true) {
+            {
+                ExtraCards = new Card[5];
+                for (int t = 0; t < me.Hand.length; t = t + 1) {
+                    ExtraCards[t] = me.Hand[t];
+                }
+                ExtraCards[4] = Deck[6];
+                me.Hand = ExtraCards;
+                me.calulateTotal();
+            }
+            System.out.println("You now have: " + me.Cardtotal);
+        }
+
     }
 
     public void compare() {
         System.out.println("The Dealer has a value of: " + Niam.Cardtotal);
-        if (Niam.Cardtotal >= 21) {
-            Niam.isBust = true;
+        if (me.Cardtotal >= 21) {
+            me.isBust = true;
+            System.out.println("You Busted! " + "\n" +  "You lost!");
+        }
+        if (me.Cardtotal < Niam.Cardtotal){
+            System.out.println("The dealer has a higher number than you! " + "\n" +  "You lost!");
+        }
+
+        if (me.Cardtotal <= 21) {
+            me.isBust = false;
+            System.out.println("You are under 21! " + "\n" +  "You Won!");
         }
     }
 

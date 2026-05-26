@@ -15,17 +15,18 @@ public class Player {
         Hand = new Card[2];
         name = "me";
     }
-    public void hit(){
+    public void HitorStay(){
         Scanner S = new Scanner(System.in);
         System.out.println("Hit OR Stay?");
         String Hit = S.nextLine();
         if(Hit.equals("Hit")){
             isHit = true;
         }
-    }
+        if(Hit.equals("Stay")){
+            isHit = false;
+            System.out.println("The dealer's amount is.....");
+        }    }
 
-    public void stand(){
-    }
 
     public void Printinfo(){
         System.out.println("name: " + name);
