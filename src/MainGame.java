@@ -24,6 +24,7 @@ public class MainGame {
         }
         shuffle();
         printdeck();
+
         me = new Player();
         Niam = new Dealer();
         //todo: give the cards to the dealer and player
@@ -33,14 +34,12 @@ public class MainGame {
 
         Niam.Hand[0] = Deck[2];
         Niam.Hand[1] = Deck[3];
-        Niam.calulateTotal();
-        Niam.Printinfo();
         //todo: give dealer card
         //todo: make the calucle totoal for the dealer
         //todo: want to print the dealers info
 
         //ask the user question
-
+        System.out.println("Dealer: Niam " + "\n" + "Niam has " + Niam.Hand[0].Value);
         Scanner S = new Scanner(System.in);
         System.out.println("What is your name?");
         String name = S.nextLine();
@@ -48,45 +47,49 @@ public class MainGame {
         me.name = name;
         me.Printinfo();
         me.HitorStay();
-        if (me.isHit == true) {
-            {
-                ExtraCards = new Card[3];
-                for (int t = 0; t < me.Hand.length; t = t + 1) {
-                    ExtraCards[t] = me.Hand[t];
-                }
-                ExtraCards[2] = Deck[4];
-                me.Hand = ExtraCards;
-                me.calulateTotal();
+        /*/if (me.isHit == true) {
+            ExtraCards = new Card[3];
+            for (int t = 0; t < me.Hand.length; t = t + 1) {
+                ExtraCards[t] = me.Hand[t];
             }
+            ExtraCards[2] = Deck[4];
+            me.Hand = ExtraCards;
             System.out.println("You now have: " + me.Cardtotal);
-        }
-        me.HitorStay();
-        if (me.isHit == true) {
-            {
-                ExtraCards = new Card[4];
-                for (int t = 0; t < me.Hand.length; t = t + 1) {
-                    ExtraCards[t] = me.Hand[t];
-                }
-                ExtraCards[3] = Deck[5];
-                me.Hand = ExtraCards;
-                me.calulateTotal();
+
+        }/*/
+//todo: Add a counter for the dealer to check how many cars ot gabe out and increasde by one
+        while (me.isHit == true) {
+            ExtraCards = new Card[me.Hand.length + 1];
+            for (int t = 0; t < me.Hand.length; t = t + 1) {
+                ExtraCards[t] = me.Hand[t];
             }
-            System.out.println("You now have: " + me.Cardtotal);
-        }
-        me.HitorStay();
-        if (me.isHit == true) {
-            {
-                ExtraCards = new Card[5];
-                for (int t = 0; t < me.Hand.length; t = t + 1) {
-                    ExtraCards[t] = me.Hand[t];
-                }
-                ExtraCards[4] = Deck[6];
-                me.Hand = ExtraCards;
-                me.calulateTotal();
-            }
-            System.out.println("You now have: " + me.Cardtotal);
+            ExtraCards[me.Hand.length] = Deck[4];
+            me.Hand = ExtraCards;
+            me.HitorStay();
+            // code block to be executed
         }
 
+
+
+
+        if (me.isHit == false) {
+            {
+                System.out.println("The dealer's amount is " + Niam.Cardtotal);
+                if (Niam.Cardtotal < 16) {
+                    ExtraCards = new Card[3];
+                    for (int t = 0; t < Niam.Hand.length; t = t + 1) {
+                        ExtraCards[t] = Niam.Hand[t];
+                    }
+                    ExtraCards[2] = Deck[4];
+                    Niam.Hand = ExtraCards;
+                    System.out.println("The dealer has under 16 and decided to hit and now they have " + Niam.Cardtotal);
+                }
+                if (Niam.Cardtotal > 16) {
+                    System.out.println("The dealer has over 16 and doesn't want t");
+                }
+            }
+
+        }
     }
 
     public void compare() {

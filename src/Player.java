@@ -24,7 +24,6 @@ public class Player {
         }
         if(Hit.equals("Stay")){
             isHit = false;
-            System.out.println("The dealer's amount is.....");
         }    }
 
 
