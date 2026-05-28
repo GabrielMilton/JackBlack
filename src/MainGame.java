@@ -19,7 +19,7 @@ public class MainGame {
             for (int x = 0; x < 13; x++) {//13 cards per suit
                 Deck[Counter] = new Card(y, 10, x);
                 Counter++;
-                //  Deck[x].Printinfo();
+
             }
         }
         shuffle();
@@ -34,6 +34,8 @@ public class MainGame {
 
         Niam.Hand[0] = Deck[2];
         Niam.Hand[1] = Deck[3];
+
+        int Counting;
         //todo: give dealer card
         //todo: make the calucle totoal for the dealer
         //todo: want to print the dealers info
@@ -63,7 +65,7 @@ public class MainGame {
             for (int t = 0; t < me.Hand.length; t = t + 1) {
                 ExtraCards[t] = me.Hand[t];
             }
-            ExtraCards[me.Hand.length] = Deck[4];
+            ExtraCards[me.Hand.length] =  Deck[4];
             me.Hand = ExtraCards;
             me.HitorStay();
             // code block to be executed
