@@ -35,7 +35,6 @@ public class MainGame {
         Niam.Hand[0] = Deck[2];
         Niam.Hand[1] = Deck[3];
 
-        int Counting;
         //todo: give dealer card
         //todo: make the calucle totoal for the dealer
         //todo: want to print the dealers info
@@ -49,26 +48,23 @@ public class MainGame {
         me.name = name;
         me.Printinfo();
         me.HitorStay();
-        /*/if (me.isHit == true) {
-            ExtraCards = new Card[3];
-            for (int t = 0; t < me.Hand.length; t = t + 1) {
-                ExtraCards[t] = me.Hand[t];
-            }
-            ExtraCards[2] = Deck[4];
-            me.Hand = ExtraCards;
-            System.out.println("You now have: " + me.Cardtotal);
 
-        }/*/
+        int Counting;
+        Counting = 4;
+
 //todo: Add a counter for the dealer to check how many cars ot gabe out and increasde by one
         while (me.isHit == true) {
             ExtraCards = new Card[me.Hand.length + 1];
             for (int t = 0; t < me.Hand.length; t = t + 1) {
                 ExtraCards[t] = me.Hand[t];
+
             }
-            ExtraCards[me.Hand.length] =  Deck[4];
+            ExtraCards[me.Hand.length] =  Deck[Counting];
+            Counting = Counting + 1;
             me.Hand = ExtraCards;
+            me.calulateTotal();
+            System.out.println(me.Cardtotal);
             me.HitorStay();
-            // code block to be executed
         }
 
 
@@ -87,7 +83,8 @@ public class MainGame {
                     System.out.println("The dealer has under 16 and decided to hit and now they have " + Niam.Cardtotal);
                 }
                 if (Niam.Cardtotal > 16) {
-                    System.out.println("The dealer has over 16 and doesn't want t");
+                    System.out.println("The dealer has over 16 and can't hit ");
+                    compare();
                 }
             }
 
