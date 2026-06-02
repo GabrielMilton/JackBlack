@@ -159,6 +159,6 @@ public class MainGame {
         }
     }
     //todo: make a method that is called shuffle()
-    // in the method make a for loop that goes through every card in the deck
+    //in the method make a for loop that goes through every card in the deck
 
 }
